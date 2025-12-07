@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  # Spring Boot приложение
+  app:
+    build: .
+    container_name: springboot-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
